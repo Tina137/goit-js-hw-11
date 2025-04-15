@@ -1,7 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import createGallery from './render-functions';
+
 function getImagesByQuery(query) {
   return axios
     .get(

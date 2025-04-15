@@ -1,6 +1,11 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 const ul = document.querySelector('.gallery');
+
+let gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 function createGallery(image) {
   ul.insertAdjacentHTML(
     'beforeend',
@@ -23,6 +28,7 @@ function createGallery(image) {
     </tr></tbody>
     </a></li>`
   );
+  gallery.refresh();
 }
 export default createGallery;
 
@@ -33,4 +39,7 @@ function showLoader() {
 function hideLoader() {
   loader.classList = 'hide';
 }
-export { showLoader, hideLoader };
+function clearGallery() {
+  ul.innerHTML = '';
+}
+export { showLoader, hideLoader, clearGallery };
