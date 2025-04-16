@@ -6,10 +6,11 @@ let gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-function createGallery(image) {
-  ul.insertAdjacentHTML(
-    'beforeend',
-    `<li><a href="${image.largeImageURL}"><img src="${image.webformatURL}" alt="${image.tags}" title=""/>
+function createGallery(images) {
+  for (const image of images) {
+    ul.insertAdjacentHTML(
+      'beforeend',
+      `<li><a href="${image.largeImageURL}"><img src="${image.webformatURL}" alt="${image.tags}" title=""/>
     <table>
   <thead>
     <tr class="th">
@@ -27,8 +28,9 @@ function createGallery(image) {
       <td>${image.downloads}</td>
     </tr></tbody>
     </a></li>`
-  );
-  gallery.refresh();
+    );
+    gallery.refresh();
+  }
 }
 export default createGallery;
 

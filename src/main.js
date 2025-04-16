@@ -16,9 +16,7 @@ form.addEventListener('submit', e => {
     showLoader();
     getImagesByQuery(userWrited.value)
       .then(images => {
-        for (const key in images) {
-          createGallery(images[key]);
-        }
+        createGallery(images);
       })
       .catch(() => {
         iziToast.error({
